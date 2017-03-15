@@ -13,3 +13,7 @@ The key offerings of `imprecise` are two new subclasses of numeric vectors.  The
 To assist with printing of results, `label` and `units` attributes may be used (similar to the `Hmisc::label` functions).  
 
 Readers are encouraged to read the vignette (`vignette("imprecise")`) for a full discussion of imprecision of measurement in laboratory settings.
+
+## The `measured` class
+
+## The `calculated` class
