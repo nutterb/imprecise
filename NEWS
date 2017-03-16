@@ -1,0 +1,4 @@
+## 0.0.1 (15 March 2017)
+
+* Added `as_measured`, `is_measured`
+* Added `print.measured`

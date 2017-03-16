@@ -1,0 +1,30 @@
+Package: imprecise
+Type: Package
+Title: Measurement Imprecision and Significant Figures
+Version: 0.0.1
+Author: Benjamin Nutter <benjamin.nutter@battelle.org>
+Maintainer: Benjamin Nutter <benjamin.nutter@battelle.org>
+Description: Imprecision of measurement is an unavoidable aspect of laboratory 
+  science. If not managed appropriately, results may lack sufficient accuracy 
+  to obtain desired results. Imprecision is traditionally managed with significant figures, where a 
+  significant figure is a digit in a reported value that is believed to have 
+  the attribute of precision. The imprecise package adopts a philosophy that 
+  precision of measurement is 
+  best understood by understanding the limit of precision on the measuring 
+  instrument. After understanding--and documenting--the precision of each 
+  instrument, the determination of the appropriate significant figures is 
+  a fairly simple exercise.
+License: MIT + file LICENSE
+Depends:
+    R (>= 3.0.0)
+Imports:
+    checkmate
+Suggests:
+    knitr,
+    testthat
+VignetteBuilder: knitr
+LazyLoad: yes
+LazyData: true
+URL: https://github.com/nutterb/imprecise,
+BugReports: https://github.com/nutterb/imprecise/issues
+RoxygenNote: 5.0.1
