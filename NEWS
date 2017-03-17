@@ -6,6 +6,7 @@
 * Included `label` subclass to `measured` and `calculated` objects.
   This prevents the `print.label` method from superceding the `print.measured`
   and `print.calculated` methods.
+* Wrote tests for print methods.
 
 ## 0.0.2 (16 March 2017)
 

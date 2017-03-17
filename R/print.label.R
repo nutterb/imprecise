@@ -47,7 +47,7 @@ print.label <- function(x, label = getOption("imprecise_label", FALSE),
   lbl <- get_label(x)
   unt <- get_units(x)
   
-  if (is.null(attr(x, "units")))
+  if (is.null(attr(x, "units")) | trimws(attr(x, "units")) == "")
   {
     units <- FALSE
   }
