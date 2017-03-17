@@ -40,6 +40,18 @@
 
 count_sigfig <- function(x)
 {
+  count_sigfig_internal(x, handle_constant = FALSE)
+}
+
+#' @rdname get_precision_internal
+
+count_sigfig_internal <- function(x, handle_constant = FALSE)
+{
+  if (handle_constant & !inherits(x, c("measured")))
+  {
+    return(rep(Inf, length(x)))
+  }
+  
   checkmate::assert_class(x = x,
                           classes = "measured")
   

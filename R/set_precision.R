@@ -61,10 +61,45 @@ set_precision <- function(x, precision)
 
 get_precision <- function(x)
 {
+  get_precision_internal(x, handle_constant = FALSE)
+}
+
+# Unexported --------------------------------------------------------
+#' @name get_precision_internal
+#' @title Internal Get Precision Function
+#' 
+#' @description At times, I need \code{get_precision} to return a vector of 
+#'   \code{-Inf}, to indicate the precision of a constant (a standard 
+#'   numeric or double vector).  Using a separate internal function allows
+#'   me this flexibility without exposing the \code{handle_constant}
+#'   argument to the user.  \code{get_precision} then references this 
+#'   function to avoid duplication of code.
+#'
+#' @param x A numeric vector.  The behavior of the function will vary
+#'   for vectors that are not \code{measured} or \code{calculated}
+#'   depending on the value of \code{handle_constant}
+#' @param handle_constant \code{logical(1)}. This argument is ignored 
+#'   when \code{x} is either \code{measured} or \code{calculated}. For
+#'   other numeric types, when \code{FALSE}, \code{NULL} is returned; 
+#'   otherwise, a vector of \code{-Inf} the length of \code{x} is 
+#'   returned. This vector suggests that the values are considered
+#'   constants (infinite precision).
+
+get_precision_internal <- function(x, handle_constant = FALSE)
+{
   if (!inherits(x, "measured") & !inherits(x, "calculated"))
   {
-    warning("precision can only be retrieved for `measured` and `calculated` classes")
-    return(NULL)
+    if (handle_constant)
+    {
+      checkmate::assert_logical(x = handle_constant,
+                                len = 1)
+      return(rep(-Inf, length(x)))
+    }
+    else
+    {
+      warning("precision can only be retrieved for `measured` and `calculated` classes")
+      return(NULL)
+    }
   }
   
   attr(x, "precision")
