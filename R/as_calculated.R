@@ -86,7 +86,7 @@ as_calculated <- function(x, sigfig,
   
   if (!length(label))
   {
-    label <- deparse(substitute(x))
+    label <- ""
   }
   
   if (!length(units))
@@ -101,7 +101,7 @@ as_calculated <- function(x, sigfig,
                  precision = rep(NA, length(x)),
                  label = label,
                  units = units,
-                 class = c("calculated", class(x)))
+                 class = c("calculated", "label", class(x)))
   
   attr(x, "precision") <- abstract_precision(x)
   

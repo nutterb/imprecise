@@ -20,6 +20,10 @@ Print \code{measured} and \code{calculated} objects to
   motivation for these functions is to print measured and calculated 
   values appropriately in data frames.
 }
+\details{
+These methods merely round the values to the appropriate place
+  prior to passing the values to their default \code{format} methods.
+}
 \author{
 Benjamin Nutter
 }

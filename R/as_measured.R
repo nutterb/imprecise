@@ -94,7 +94,7 @@ as_measured <- function(x, precision,
   
   if (!length(label))
   {
-    label <- deparse(substitute(x))
+    label <- ""
   }
   
   if (!length(units))
@@ -108,7 +108,7 @@ as_measured <- function(x, precision,
             precision = precision,
             label = label,
             units = units,
-            class = c("measured", class(x)))
+            class = c("measured", "label", class(x)))
 }
 
 #' @rdname as_measured

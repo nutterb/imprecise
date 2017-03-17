@@ -1,6 +1,8 @@
 ## 0.0.3 (17 march 2017)
 
 * Added `format.measured` and `format.calculated`
+* Added Extraction and Replacement methods for `measured` and 
+  `calculated` classes.
 * Included `label` subclass to `measured` and `calculated` objects.
   This prevents the `print.label` method from superceding the `print.measured`
   and `print.calculated` methods.
