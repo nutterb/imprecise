@@ -1,3 +1,10 @@
+## 0.0.3 (17 march 2017)
+
+* Added `format.measured` and `format.calculated`
+* Included `label` subclass to `measured` and `calculated` objects.
+  This prevents the `print.label` method from superceding the `print.measured`
+  and `print.calculated` methods.
+
 ## 0.0.2 (16 March 2017)
 
 * Added `as_calculated`
