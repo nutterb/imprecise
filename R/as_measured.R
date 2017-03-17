@@ -15,7 +15,7 @@
 #' @param label \code{character(1)}. The human-friendly label for the vector.
 #' @param units \code{character(1)}. Gives the unit of measurement.
 #' 
-#' @description Precision is specified using the exponent of a power of ten.  
+#' @details Precision is specified using the exponent of a power of ten.  
 #'   A measurement that is precise to the ones place is specified by 
 #'   \code{0} (1 * 10 ^ 0).  Precision to the tens place is specified by 
 #'   \code{1} (1 * 10 ^ 1).  Precision to the tenths place specified by 
@@ -27,7 +27,7 @@
 #' @section Functional Requirements:
 #' \enumerate{
 #'   \item  If \code{x} is \code{numeric} or \code{double}, return a vector
-#'     with \code{precision}, \code{label}, and \code{units} arguments.
+#'     with \code{precision}, \code{label}, and \code{units} attributes.
 #'   \item If \code{precision} is not integerish, cast an error.
 #'   \item \code{precision} may have length no greater than \code{x}.
 #'   \item If \code{length(x)} is not a multiple of \code{length(precision)}, cast a 

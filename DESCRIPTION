@@ -1,7 +1,7 @@
 Package: imprecise
 Type: Package
 Title: Measurement Imprecision and Significant Figures
-Version: 0.0.1
+Version: 0.0.2
 Author: Benjamin Nutter <benjamin.nutter@battelle.org>
 Maintainer: Benjamin Nutter <benjamin.nutter@battelle.org>
 Description: Imprecision of measurement is an unavoidable aspect of laboratory 

@@ -26,8 +26,7 @@
 #'   
 #' @section Functional Requirements:
 #' \enumerate{
-#'   \item If \code{x} does not inherit class \code{measured} or if 
-#'         \code{x} inherits class \code{calculated}, cast an error.
+#'   \item If \code{x} does not inherit class \code{measured}, cast an error.
 #'   \item Return the correct count of significant figures for the 
 #'         measurement.
 #' }
@@ -41,16 +40,14 @@
 
 count_sigfig <- function(x)
 {
-  if (!(inherits(x, "measured") & !inherits(x, "calculated")))
-  {
-    stop("`x` must be a `measured` vector and not a `calculated` vector")
-  }
+  checkmate::assert_class(x = x,
+                          classes = "measured")
   
   precision <- attr(x, "precision")
   x <- as.numeric(x)
   
   ceiling(
-    log(x * 10 ^ (precision * -1),
+    log(abs(x * 10 ^ (precision * -1)),
         base = 10)
   )
 }

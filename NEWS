@@ -1,3 +1,14 @@
+## 0.0.2 (16 March 2017)
+
+* Added `as_calculated`
+* Added `is_calculated`
+* Added `count_sigfig`
+* Added `abstract_precision`
+* Added `set_precision` and `get_precision`
+* Added `set_sigfig` and `set_precision`
+* Added `set_label`, `get_label`, `set_units`, and `get_units`
+# Added `print.label`
+
 ## 0.0.1 (15 March 2017)
 
 * Added `as_measured`, `is_measured`

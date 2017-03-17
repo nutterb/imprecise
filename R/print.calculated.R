@@ -1,9 +1,9 @@
-#' @name print.measured
-#' @title Print Measured Vector
+#' @name print.calculated
+#' @title Print Calculated Vector
 #' 
-#' @description Print a Measured Vector
+#' @description Print a Calculated Vector
 #' 
-#' @param x A vector that inherits class \code{measured}
+#' @param x A vector that inherits class \code{calculated}
 #' @param label \code{logical(1)}. When \code{TRUE}, the label is printed.
 #' @param units \code{logical(1)}. When \code{TRUE}, the unit of measurement
 #'   is printed.
@@ -11,8 +11,8 @@
 #'   
 #' @section Functional Requirements:
 #' \enumerate{
-#'   \item The value of \code{x} is rounded to the corresponding value 
-#'     in the \code{precision} attribute.
+#'   \item The value of \code{x} is printed with the significant figures 
+#'     in the \code{sigfig} attribute.
 #'   \item When \code{label = TRUE}, the \code{label} attribute is 
 #'     printed above the output.
 #'   \item When \code{units = TRUE}, the \code{units} attribute is 
@@ -22,21 +22,21 @@
 #'     to \code{FALSE}
 #' }
 #' 
-#' @seealso \code{\link{print.calculated}}
+#' @seealso \code{\link{print.measured}}
 #' 
 #' @author Benjamin Nutter
 #' 
 #' @export
 
-print.measured <- function(x, 
-                           label = getOption("imprecise_label", FALSE),
-                           units = getOption("imprecise_units", FALSE),
-                           ...)
+print.calculated <- function(x, 
+                             label = getOption("imprecise_label", FALSE),
+                             units = getOption("imprecise_units", FALSE),
+                             ...)
 {
   coll <- checkmate::makeAssertCollection()
   
   checkmate::assert_class(x = x,
-                          classes = "measured",
+                          classes = "calculated",
                           add = coll)
   
   checkmate::assert_logical(x = label,
@@ -53,7 +53,7 @@ print.measured <- function(x,
   {
     units <- FALSE
   }
-    
+  
   
   lu <- sprintf("%s%s%s",
                 if (label) attr(x, "label") else "",
@@ -65,6 +65,6 @@ print.measured <- function(x,
     cat(lu, "\n")
   }
   
-  print(x = round(as.numeric(x), 
-                  digits = attr(x, "precision") * -1))
+  print(x = signif(as.numeric(x), 
+                   digits = attr(x, "sigfig")))
 }
