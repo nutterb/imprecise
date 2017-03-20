@@ -66,5 +66,5 @@ print.measured <- function(x,
   }
   
   print(x = round(as.numeric(x), 
-                  digits = attr(x, "precision") * -1))
+                  digits = attr(x, "precision")))
 }
